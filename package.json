@@ -1,0 +1,14 @@
+{
+  "name": "javascriptTemplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "url": "https://github.com/aha-oretama/javascriptTemplate.git",
+    "type": "git"
+  },
+  "author": "aha-oremata",
+  "license": "MIT"
+}
