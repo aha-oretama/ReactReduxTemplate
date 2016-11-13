@@ -7,6 +7,7 @@ import babel from 'gulp-babel';
 import del from 'del';
 import webpack from 'webpack-stream';
 import webpackConfig from './webpack.config.babel';
+import mocha from 'gulp-mocha';
 
 const paths = {
     allSrcJs: 'src/**/*.js?(x)',
@@ -17,7 +18,8 @@ const paths = {
     webpackFile: 'webpack.config.babel.js',
     libDir: 'lib',
     distDir: 'dist',
-    clientBundle: 'dist/client-bundle.js?(.map)'
+    clientBundle: 'dist/client-bundle.js?(.map)',
+    allLibTests: 'lib/test/**/*.js'
 };
 
 gulp.task('clean', () => del([
@@ -42,3 +44,8 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', ['watch', 'main']);
+
+gulp.task('test', ['build'], () =>
+    gulp.src(paths.allLibTests)
+        .pipe(mocha())
+);
