@@ -11,6 +11,7 @@ This template is made from following factors.
 * [mocha](https://mochajs.org/)
 * [chai](http://chaijs.com/)
 * [babel](https://babeljs.io/)
+* [flow](https://flowtype.org/)
 
 This does not include Production / development environments, Express, React Router, Server-Side Rendering, Styling, Enzyme, Git Hooks.
 Therefore, in this time, if you use as web application template, you have to add Express and so on.

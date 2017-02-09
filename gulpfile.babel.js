@@ -8,6 +8,7 @@ import del from 'del';
 import webpack from 'webpack-stream';
 import webpackConfig from './webpack.config.babel';
 import mocha from 'gulp-mocha';
+import flow from 'gulp-flowtype';
 
 const paths = {
     allSrcJs: 'src/**/*.js?(x)',
@@ -27,13 +28,13 @@ gulp.task('clean', () => del([
     paths.clientBundle,
 ]));
 
-gulp.task('build', ['clean'], () => {
+gulp.task('build', ['lint','clean'], () => {
     return gulp.src(paths.allSrcJs)
         .pipe(babel())
         .pipe(gulp.dest(paths.libDir));
 });
 
-gulp.task('main', ['clean'], () =>
+gulp.task('main', ['test'], () =>
     gulp.src(paths.clientEntryPoint)
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest(paths.distDir))
@@ -48,4 +49,13 @@ gulp.task('default', ['watch', 'main']);
 gulp.task('test', ['build'], () =>
     gulp.src(paths.allLibTests)
         .pipe(mocha())
+);
+
+gulp.task('lint', () =>
+    gulp.src([
+      paths.allSrcJs,
+      paths.gulpFile,
+      paths.webpackFile
+    ])
+      .pipe(flow({abort: true}))
 );

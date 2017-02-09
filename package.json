@@ -15,17 +15,20 @@
   "babel": {
     "presets": [
       "latest",
-      "react"
+      "react",
+      "flow"
     ]
   },
   "devDependencies": {
     "babel-loader": "^6.2.7",
+    "babel-preset-flow": "^1.0.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-flowtype": "^1.0.0",
     "gulp-mocha": "^3.0.1",
     "mocha": "^3.1.2",
     "webpack-stream": "^3.2.0"
