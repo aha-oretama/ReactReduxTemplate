@@ -1,3 +1,7 @@
+// @flow
+
+/* eslint-disable no-console */
+
 /**
  * @author aha-oretama
  * @Date 2016/11/13.

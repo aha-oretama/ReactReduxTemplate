@@ -1,10 +1,12 @@
+// @flow
+
 /**
  * @author aha-oretama
  * @Date 2016/11/13.
  */
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Button from '../components/button';
-import { makeBark } from '../actions/dog-actions';
+import {makeBark} from '../actions/dog-actions';
 
 const mapDispatchToProps = dispatch => ({
   action: () => {

@@ -1,7 +1,7 @@
-/**
- * @author aha-oretama
- * @Date 2016/11/13.
- */
+// @flow
+
+/* eslint-disable import/no-extraneous-dependencies, no-unused-expressions */
+
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
@@ -10,6 +10,11 @@ import webpack from 'webpack-stream';
 import mocha from 'gulp-mocha';
 import flow from 'gulp-flowtype';
 import webpackConfig from './webpack.config.babel';
+
+/**
+ * @author aha-oretama
+ * @Date 2016/11/13.
+ */
 
 const paths = {
   allSrcJs: 'src/**/*.js?(x)',
@@ -29,11 +34,11 @@ gulp.task('clean', () => del([
   paths.clientBundle
 ]));
 
-gulp.task('build', ['lint', 'clean'], () => {
-  return gulp.src(paths.allSrcJs)
+gulp.task('build', ['lint', 'clean'], () =>
+  gulp.src(paths.allSrcJs)
     .pipe(babel())
-    .pipe(gulp.dest(paths.libDir));
-});
+    .pipe(gulp.dest(paths.libDir))
+);
 
 gulp.task('main', ['test'], () =>
   gulp.src(paths.clientEntryPoint)
@@ -61,5 +66,5 @@ gulp.task('lint', () =>
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
-    .pipe(flow({abort: true}))
+    .pipe(flow({abort: false}))
 );
