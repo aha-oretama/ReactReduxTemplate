@@ -12,18 +12,18 @@ should();
 let store;
 
 describe('App State', () => {
-    describe('Dog', () => {
-        beforeEach(() => {
-            store = createStore(combineReducers({
-                dog: dogReducer,
-            }));
-        });
-        describe('makeBark', () => {
-            it('should make hasBarked go from false to true', () => {
-                store.getState().dog.get('hasBarked').should.be.false;
-                store.dispatch(makeBark());
-                store.getState().dog.get('hasBarked').should.be.true;
-            });
-        });
+  describe('Dog', () => {
+    beforeEach(() => {
+      store = createStore(combineReducers({
+        dog: dogReducer,
+      }));
     });
+    describe('makeBark', () => {
+      it('should make hasBarked go from false to true', () => {
+        store.getState().dog.get('hasBarked').should.be.false;
+        store.dispatch(makeBark());
+        store.getState().dog.get('hasBarked').should.be.true;
+      });
+    });
+  });
 });

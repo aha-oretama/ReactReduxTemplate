@@ -11,15 +11,15 @@ import BarkMessage from './containers/bark-message';
 import BarkButton from './containers/bark-button';
 
 const store = createStore(combineReducers({
-    dog: dogReducer,
+  dog: dogReducer,
 }));
 
 ReactDOM.render(
-    <Provider store={store}>
-        <div>
-            <BarkMessage />
-            <BarkButton />
-        </div>
-    </Provider>
-    , document.querySelector('.app')
+  <Provider store={store}>
+    <div>
+      <BarkMessage />
+      <BarkButton />
+    </div>
+  </Provider>
+  , document.querySelector('.app')
 );
